@@ -1,0 +1,9 @@
+{% extends 'search/base.html' %}
+
+{% block content %}
+    <form action="." method="POST">{% csrf_token%}
+        <input type="text" name="query" placeholder="Type your Query "/>
+        <input type="submit" value="Search">
+    </form>
+
+{% endblock %}

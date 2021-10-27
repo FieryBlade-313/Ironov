@@ -1,0 +1,21 @@
+{% extends 'search/base.html' %}
+
+{% block content %}
+<form action="." method="POST">{% csrf_token%}
+    <input type="text" name="query" placeholder="Type your Query "/>
+    <input type="submit" value="Search">
+</form>
+<h1>Retrieved Documents</h1>
+    {% for item1,item2 in docs %}
+        <p>
+           <b>{{ forloop.counter }})</b> Doc-id : {{item1}} 
+        </p>
+    {% endfor %}
+<p>
+    <h1>Please provide your feedback here </h1>
+    <form action="." method="POST">{% csrf_token%}
+        <input type="text" name="feed" placeholder="feedback here">
+        <input type="submit" value="Enter">
+    </form>
+</p>
+{% endblock %}
